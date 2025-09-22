@@ -1,0 +1,60 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Conditional Statements Demo</title>
+  <style>
+    body { font-family: Arial, sans-serif; margin: 20px; background-color: #f9f9f9; }
+    h1 { color: darkblue; }
+    input, button { padding: 8px; margin-top: 5px; margin-bottom: 15px; }
+    .result { margin-top: 10px; font-weight: bold; }
+  </style>
+</head>
+<body>
+  <h1>Conditional Statements Demo</h1>
+
+  <label for="number">Enter a number:</label><br>
+  <input type="number" id="number">
+  <button onclick="checkIfElse()">If-Else Check</button>
+  <button onclick="checkSwitch()">Switch Check</button>
+
+  <div class="result" id="result"></div>
+
+  <script>
+    function checkIfElse() {
+      const num = parseInt(document.getElementById('number').value);
+      let output;
+      if(isNaN(num)) {
+        output = 'Please enter a valid number';
+      } else if(num > 0) {
+        output = 'The number is positive';
+      } else if(num < 0) {
+        output = 'The number is negative';
+      } else {
+        output = 'The number is zero';
+      }
+      document.getElementById('result').innerText = output;
+    }
+
+    function checkSwitch() {
+      const num = parseInt(document.getElementById('number').value);
+      let output;
+      switch(num) {
+        case 0:
+          output = 'Number is zero';
+          break;
+        case 1:
+          output = 'Number is one';
+          break;
+        case 2:
+          output = 'Number is two';
+          break;
+        default:
+          output = 'Number is something else';
+      }
+      document.getElementById('result').innerText = output;
+    }
+  </script>
+</body>
+</html>

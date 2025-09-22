@@ -1,0 +1,44 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Word Count</title>
+  <style>
+    body { font-family: Arial, sans-serif; margin: 20px; background-color: #f9f9f9; }
+    h1 { color: darkblue; }
+    input, button { padding: 8px; margin-top: 5px; margin-bottom: 15px; width: 100%; }
+    .result { font-weight: bold; margin-top: 10px; }
+  </style>
+</head>
+<body>
+  <h1>Word Count Calculator</h1>
+
+  <label for="sentence">Enter a sentence:</label><br>
+  <textarea id="sentence" rows="4"></textarea><br>
+  <button onclick="countWords()">Count Words</button>
+
+  <div class="result" id="result"></div>
+
+  <script>
+    function countWords() {
+      const sentence = document.getElementById('sentence').value.trim();
+      if(sentence === '') { document.getElementById('result').innerText = 'Enter a sentence'; return; }
+
+      let count = 0;
+      let inWord = false;
+
+      for(let i = 0; i < sentence.length; i++) {
+        if(sentence[i] !== ' ' && !inWord) {
+          count++;
+          inWord = true;
+        } else if(sentence[i] === ' ') {
+          inWord = false;
+        }
+      }
+
+      document.getElementById('result').innerText = `Number of words: ${count}`;
+    }
+  </script>
+</body>
+</html>

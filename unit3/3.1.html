@@ -1,0 +1,88 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Form Controls Demo</title>
+  <style>
+    body { font-family: Arial, sans-serif; margin: 20px; background-color: #f9f9f9; }
+    h1 { color: darkblue; }
+    form { background-color: #fff; padding: 20px; border-radius: 8px; max-width: 600px; }
+    label { display: block; margin-top: 10px; font-weight: bold; }
+    input, select, textarea { width: 100%; padding: 6px; margin-top: 4px; }
+    fieldset { margin-top: 10px; padding: 10px; }
+    button { margin-top: 15px; padding: 10px 15px; background-color: #2563eb; color: #fff; border: none; border-radius: 5px; cursor: pointer; }
+  </style>
+</head>
+<body>
+  <h1>Form Controls Demo</h1>
+  <form onsubmit="event.preventDefault(); alert('Form submitted!');">
+    <label for="text">Text Input:</label>
+    <input type="text" id="text" name="text">
+
+    <label for="password">Password:</label>
+    <input type="password" id="password" name="password">
+
+    <label for="email">Email:</label>
+    <input type="email" id="email" name="email">
+
+    <label for="number">Number:</label>
+    <input type="number" id="number" name="number">
+
+    <label for="date">Date:</label>
+    <input type="date" id="date" name="date">
+
+    <label for="color">Color:</label>
+    <input type="color" id="color" name="color">
+
+    <label for="file">File Upload:</label>
+    <input type="file" id="file" name="file">
+
+    <fieldset>
+      <legend>Radio Buttons:</legend>
+      <input type="radio" id="radio1" name="radioGroup" value="option1">
+      <label for="radio1">Option 1</label><br>
+      <input type="radio" id="radio2" name="radioGroup" value="option2">
+      <label for="radio2">Option 2</label>
+    </fieldset>
+
+    <fieldset>
+      <legend>Checkboxes:</legend>
+      <input type="checkbox" id="check1" name="checkGroup" value="check1">
+      <label for="check1">Check 1</label><br>
+      <input type="checkbox" id="check2" name="checkGroup" value="check2">
+      <label for="check2">Check 2</label>
+    </fieldset>
+
+    <label for="textarea">Textarea:</label>
+    <textarea id="textarea" name="textarea" rows="4"></textarea>
+
+    <label for="select">Select:</label>
+    <select id="select" name="select">
+      <option value="option1">Option 1</option>
+      <option value="option2">Option 2</option>
+      <option value="option3">Option 3</option>
+    </select>
+
+    <label for="range">Range:</label>
+    <input type="range" id="range" name="range" min="0" max="100">
+
+    <label for="url">URL:</label>
+    <input type="url" id="url" name="url">
+
+    <label for="tel">Telephone:</label>
+    <input type="tel" id="tel" name="tel">
+
+    <label for="month">Month:</label>
+    <input type="month" id="month" name="month">
+
+    <label for="week">Week:</label>
+    <input type="week" id="week" name="week">
+
+    <label for="time">Time:</label>
+    <input type="time" id="time" name="time">
+
+    <button type="submit">Submit Form</button>
+  </form>
+</body>
+</html>

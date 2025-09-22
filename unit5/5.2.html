@@ -1,0 +1,100 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Form Validation Demo</title>
+  <style>
+    body { font-family: Arial, sans-serif; margin: 20px; background-color: #f9f9f9; }
+    h1 { color: darkblue; }
+    form { background-color: #fff; padding: 20px; border-radius: 8px; max-width: 500px; }
+    label { display: block; margin-top: 10px; font-weight: bold; }
+    input, select, textarea { width: 100%; padding: 6px; margin-top: 4px; }
+    .error { color: red; font-size: 0.9em; }
+    button { margin-top: 15px; padding: 10px 15px; background-color: #2563eb; color: #fff; border: none; border-radius: 5px; cursor: pointer; }
+  </style>
+</head>
+<body>
+  <h1>Form Validation Demo</h1>
+  <form id="demoForm" onsubmit="return validateForm()">
+
+    <label for="name">Name:</label>
+    <input type="text" id="name" name="name">
+    <div id="nameError" class="error"></div>
+
+    <label for="email">Email:</label>
+    <input type="email" id="email" name="email">
+    <div id="emailError" class="error"></div>
+
+    <label for="password">Password:</label>
+    <input type="password" id="password" name="password">
+    <div id="passwordError" class="error"></div>
+
+    <label for="age">Age:</label>
+    <input type="number" id="age" name="age" min="1">
+    <div id="ageError" class="error"></div>
+
+    <label for="gender">Gender:</label>
+    <select id="gender" name="gender">
+      <option value="">Select Gender</option>
+      <option value="male">Male</option>
+      <option value="female">Female</option>
+    </select>
+    <div id="genderError" class="error"></div>
+
+    <label>Hobbies:</label>
+    <input type="checkbox" id="hobby1" name="hobbies" value="Reading">Reading
+    <input type="checkbox" id="hobby2" name="hobbies" value="Sports">Sports
+    <input type="checkbox" id="hobby3" name="hobbies" value="Music">Music
+    <div id="hobbiesError" class="error"></div>
+
+    <label for="comments">Comments:</label>
+    <textarea id="comments" name="comments" rows="3"></textarea>
+    <div id="commentsError" class="error"></div>
+
+    <button type="submit">Submit</button>
+  </form>
+
+  <script>
+    function validateForm() {
+      let isValid = true;
+
+      // Clear previous errors
+      document.querySelectorAll('.error').forEach(e => e.innerText = '');
+
+      // Name validation
+      const name = document.getElementById('name').value.trim();
+      if(name === '') { document.getElementById('nameError').innerText = 'Name is required'; isValid = false; }
+
+      // Email validation
+      const email = document.getElementById('email').value.trim();
+      const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+      if(email === '') { document.getElementById('emailError').innerText = 'Email is required'; isValid = false; }
+      else if(!emailPattern.test(email)) { document.getElementById('emailError').innerText = 'Enter a valid email'; isValid = false; }
+
+      // Password validation
+      const password = document.getElementById('password').value;
+      if(password.length < 6) { document.getElementById('passwordError').innerText = 'Password must be at least 6 characters'; isValid = false; }
+
+      // Age validation
+      const age = document.getElementById('age').value;
+      if(age === '' || age < 1) { document.getElementById('ageError').innerText = 'Enter a valid age'; isValid = false; }
+
+      // Gender validation
+      const gender = document.getElementById('gender').value;
+      if(gender === '') { document.getElementById('genderError').innerText = 'Select your gender'; isValid = false; }
+
+      // Hobbies validation
+      const hobbies = document.querySelectorAll('input[name="hobbies"]:checked');
+      if(hobbies.length === 0) { document.getElementById('hobbiesError').innerText = 'Select at least one hobby'; isValid = false; }
+
+      // Comments validation
+      const comments = document.getElementById('comments').value.trim();
+      if(comments === '') { document.getElementById('commentsError').innerText = 'Comments are required'; isValid = false; }
+
+      if(isValid) { alert('Form submitted successfully!'); }
+      return false; // Prevent actual submission for demo
+    }
+  </script>
+</body>
+</html>

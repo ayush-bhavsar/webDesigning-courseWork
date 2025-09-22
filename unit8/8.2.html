@@ -1,0 +1,101 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Core JavaScript References Demo</title>
+  <style>
+    body { font-family: Arial, sans-serif; margin: 20px; background-color: #f9f9f9; }
+    h1 { color: darkblue; }
+    section { margin-bottom: 20px; padding: 10px; background-color: #fff; border-radius: 8px; }
+    .result { font-weight: bold; margin-top: 5px; }
+  </style>
+</head>
+<body>
+  <h1>Core JavaScript References Demo</h1>
+
+  <section>
+    <h2>Array</h2>
+    <div id="arrayResult" class="result"></div>
+  </section>
+
+  <section>
+    <h2>Boolean</h2>
+    <div id="booleanResult" class="result"></div>
+  </section>
+
+  <section>
+    <h2>Date</h2>
+    <div id="dateResult" class="result"></div>
+  </section>
+
+  <section>
+    <h2>Function</h2>
+    <div id="functionResult" class="result"></div>
+  </section>
+
+  <section>
+    <h2>Math</h2>
+    <div id="mathResult" class="result"></div>
+  </section>
+
+  <section>
+    <h2>Number</h2>
+    <div id="numberResult" class="result"></div>
+  </section>
+
+  <section>
+    <h2>Object</h2>
+    <div id="objectResult" class="result"></div>
+  </section>
+
+  <section>
+    <h2>String</h2>
+    <div id="stringResult" class="result"></div>
+  </section>
+
+  <section>
+    <h2>RegExp</h2>
+    <div id="regexpResult" class="result"></div>
+  </section>
+
+  <script>
+    // Array
+    const arr = [1, 2, 3, 4, 5];
+    document.getElementById('arrayResult').innerText = `Array: ${arr.join(', ')}`;
+
+    // Boolean
+    const boolVal = (5 > 3);
+    document.getElementById('booleanResult').innerText = `Boolean: ${boolVal}`;
+
+    // Date
+    const today = new Date();
+    document.getElementById('dateResult').innerText = `Date: ${today.toDateString()}`;
+
+    // Function
+    function greet(name) { return `Hello, ${name}!`; }
+    document.getElementById('functionResult').innerText = greet('User');
+
+    // Math
+    const randomNum = Math.floor(Math.random() * 100);
+    document.getElementById('mathResult').innerText = `Random Number: ${randomNum}, PI: ${Math.PI}`;
+
+    // Number
+    const num = Number('123');
+    document.getElementById('numberResult').innerText = `Number: ${num}, isNaN('abc'): ${isNaN('abc')}`;
+
+    // Object
+    const person = {name:'John', age:30};
+    document.getElementById('objectResult').innerText = `Object: Name=${person.name}, Age=${person.age}`;
+
+    // String
+    const str = 'Hello World';
+    document.getElementById('stringResult').innerText = `String: ${str}, Length=${str.length}`;
+
+    // RegExp
+    const pattern = /world/i;
+    const testStr = 'Hello World';
+    document.getElementById('regexpResult').innerText = `RegExp Test: /world/i in '${testStr}' = ${pattern.test(testStr)}`;
+  </script>
+</body>
+</html>

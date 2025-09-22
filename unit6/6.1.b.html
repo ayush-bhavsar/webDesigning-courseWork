@@ -1,0 +1,37 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Sum of Digits</title>
+  <style>
+    body { font-family: Arial, sans-serif; margin: 20px; background-color: #f9f9f9; }
+    h1 { color: darkblue; }
+    input, button { padding: 8px; margin-top: 5px; margin-bottom: 15px; }
+    .result { font-weight: bold; margin-top: 10px; }
+  </style>
+</head>
+<body>
+  <h1>Sum of Digits Calculator</h1>
+
+  <label for="number">Enter a number:</label><br>
+  <input type="number" id="number">
+  <button onclick="calculateSum()">Calculate Sum</button>
+
+  <div class="result" id="result"></div>
+
+  <script>
+    function calculateSum() {
+      let num = document.getElementById('number').value;
+      if(num === '') { alert('Enter a number'); return; }
+      num = Math.abs(parseInt(num));
+      let sum = 0;
+      while(num > 0) {
+        sum += num % 10;
+        num = Math.floor(num / 10);
+      }
+      document.getElementById('result').innerText = `Sum of digits is ${sum}`;
+    }
+  </script>
+</body>
+</html>

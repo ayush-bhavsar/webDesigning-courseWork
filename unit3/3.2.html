@@ -1,0 +1,85 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Tables Demo</title>
+  <style>
+    body { font-family: Arial, sans-serif; margin: 20px; background-color: #f8f8f8; }
+    h1 { color: darkblue; }
+    table { border-collapse: collapse; width: 100%; margin-bottom: 20px; }
+    th, td { border: 1px solid #333; padding: 8px; text-align: left; }
+    th { background-color: #2563eb; color: white; }
+    tr:nth-child(even) { background-color: #f2f2f2; }
+    caption { font-weight: bold; margin-bottom: 5px; }
+  </style>
+</head>
+<body>
+  <h1>Table Examples</h1>
+
+  <!-- Simple Table -->
+  <table>
+    <caption>Simple Table</caption>
+    <tr>
+      <th>Item</th>
+      <th>Price</th>
+      <th>Quantity</th>
+    </tr>
+    <tr>
+      <td>Apple</td>
+      <td>$1</td>
+      <td>10</td>
+    </tr>
+    <tr>
+      <td>Banana</td>
+      <td>$0.5</td>
+      <td>20</td>
+    </tr>
+  </table>
+
+  <!-- Table with rowspan and colspan -->
+  <table>
+    <caption>Table with Rowspan and Colspan</caption>
+    <tr>
+      <th>Month</th>
+      <th>Week 1</th>
+      <th>Week 2</th>
+      <th>Week 3</th>
+    </tr>
+    <tr>
+      <td rowspan="2">January</td>
+      <td>Task A</td>
+      <td>Task B</td>
+      <td>Task C</td>
+    </tr>
+    <tr>
+      <td colspan="2">Combined Task</td>
+      <td>Task D</td>
+    </tr>
+  </table>
+
+  <!-- Table with header group -->
+  <table>
+    <caption>Table with Column Group</caption>
+    <colgroup>
+      <col span="1" style="background-color:#e0e0e0">
+      <col span="2" style="background-color:#fff">
+    </colgroup>
+    <tr>
+      <th>Product</th>
+      <th>Price</th>
+      <th>Stock</th>
+    </tr>
+    <tr>
+      <td>Notebook</td>
+      <td>$2</td>
+      <td>50</td>
+    </tr>
+    <tr>
+      <td>Pen</td>
+      <td>$1</td>
+      <td>100</td>
+    </tr>
+  </table>
+</body>
+</html>

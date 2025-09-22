@@ -1,0 +1,123 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Text Formatting Tags — Example Page</title>
+  <style>
+    body { font-family: Inter, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial; line-height: 1.6; padding: 2rem; max-width: 900px; margin: auto; color: #111827; }
+    header { margin-bottom: 1.5rem; }
+    h1 { font-size: 2rem; margin-bottom: .25rem; }
+    .card { background: #f8fafc; border: 1px solid #e6eef6; padding: 1rem; border-radius: 8px; margin-bottom: 1rem; }
+    pre { background:#0b1220; color:#e6eef6; padding: .75rem; border-radius:6px; overflow:auto; }
+    code { font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, "Roboto Mono", "Courier New", monospace; font-size: .95em; }
+    .labels { font-size: .9rem; color: #374151; margin-bottom:.5rem }
+    footer { margin-top: 2rem; font-size: .9rem; color: #6b7280 }
+    dl dt { font-weight:700 }
+    .example { padding: .5rem; border-left: 3px solid #60a5fa; background: #f1f8ff; border-radius:4px }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Text Formatting Tags — Example Page</h1>
+    <p class="labels">Demonstration of common HTML text-formatting elements with small examples.</p>
+  </header>
+
+  <section class="card">
+    <h2>Headings</h2>
+    <p class="example">&lt;h1&gt; to &lt;h6&gt; — used for document structure and SEO.</p>
+    <h1>Heading level 1 (&lt;h1&gt;)</h1>
+    <h2>Heading level 2 (&lt;h2&gt;)</h2>
+    <h3>Heading level 3 (&lt;h3&gt;)</h3>
+    <h4>Heading level 4 (&lt;h4&gt;)</h4>
+    <h5>Heading level 5 (&lt;h5&gt;)</h5>
+    <h6>Heading level 6 (&lt;h6&gt;)</h6>
+  </section>
+
+  <section class="card">
+    <h2>Inline text styles</h2>
+    <p class="example">Use inline tags inside &lt;p&gt; or other containers.</p>
+    <p>This is <strong>strong</strong> (semantic importance) and <b>bold</b> (presentational).</p>
+    <p>This is <em>emphasized</em> and <i>italic</i> (visual italics).</p>
+    <p>Underline: <u>underlined text</u> — Small: <small>fine print</small>.</p>
+    <p>Marked/highlighted: <mark>important</mark>. Deleted: <del>removed text</del>. Inserted: <ins>new text</ins>.</p>
+    <p>Subscript: H<sub>2</sub>O — Superscript: x<sup>2</sup>.</p>
+    <p>Abbreviation: <abbr title="HyperText Markup Language">HTML</abbr> — Citation: <cite>— some book</cite>.</p>
+  </section>
+
+  <section class="card">
+    <h2>Monospace &amp; keyboard</h2>
+    <p class="example">Useful for code samples and keyboard hints.</p>
+    <p>Inline code: <code>const x = 10;</code></p>
+    <p>Keyboard key: Press <kbd>Ctrl</kbd> + <kbd>S</kbd> to save.</p>
+    <p>Sample output: <samp>Server started on port 3000</samp></p>
+  </section>
+
+  <section class="card">
+    <h2>Block-level text</h2>
+    <p class="example">Paragraphs, preformatted text, blockquotes and addresses.</p>
+    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Paragraphs are the basic building blocks of text content.</p>
+
+    <blockquote cite="https://example.com">
+      <p>Blockquote example: “Design is not just what it looks like and feels like. Design is how it works.”</p>
+    </blockquote>
+
+    <pre><code>function greet(name) {
+  return `Hello, ${name}!`;
+}
+console.log(greet('Ayush'));
+</code></pre>
+
+    <address>
+      Contact: Doc Example<br>
+      <a href="mailto:doc@example.com">doc@example.com</a><br>
+      1234 Sample Ave, City
+    </address>
+  </section>
+
+  <section class="card">
+    <h2>Quotations &amp; variables</h2>
+    <p class="example">Use &lt;q&gt; for short inline quotations and &lt;var&gt; for variables.</p>
+    <p>She said <q cite="https://example.com">this is great</q> in the meeting.</p>
+    <p>Mathematical variable: <var>x</var> = 10</p>
+  </section>
+
+  <section class="card">
+    <h2>Lists</h2>
+    <p class="example">Ordered, unordered and definition lists.</p>
+    <ul>
+      <li>Unordered list item</li>
+      <li>Another item with <strong>bold</strong> text</li>
+    </ul>
+    <ol>
+      <li>First ordered item</li>
+      <li>Second ordered item</li>
+    </ol>
+    <dl>
+      <dt>HTML</dt>
+      <dd>HyperText Markup Language</dd>
+      <dt>CSS</dt>
+      <dd>Cascading Style Sheets</dd>
+    </dl>
+  </section>
+
+  <section class="card">
+    <h2>Time &amp; machine readable dates</h2>
+    <p class="example">Use &lt;time&gt; for dates/times (machine readable).</p>
+    <p>Event date: <time datetime="2025-10-12">October 12, 2025</time></p>
+  </section>
+
+  <section class="card">
+    <h2>Putting it together: a small article</h2>
+    <article>
+      <h3>How to write clear paragraphs</h3>
+      <p>Good paragraphs have a topic sentence, supporting sentences, and a concluding sentence. Use <strong>semantic</strong> tags so assistive tech and search engines understand structure.</p>
+      <p class="example">Example inline mix: This sentence uses an <em>emphasis</em>, a <code>code</code> word, and an <abbr title="World Health Organization">WHO</abbr> abbreviation.</p>
+    </article>
+  </section>
+
+  <footer>
+    <p>Save this page as <code>text-formatting-example.html</code> and open it in your browser to preview. Want this with Gujarati comments or more examples? Tell me which tags you'd like to focus on.</p>
+  </footer>
+</body>
+</html>

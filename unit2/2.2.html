@@ -1,0 +1,29 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Image Map Demo</title>
+  <style>
+    body { font-family: Arial, sans-serif; margin: 20px; }
+    h1 { color: darkblue; }
+    p { font-size: 16px; }
+    img { max-width: 100%; height: auto; border: 1px solid #ccc; }
+  </style>
+</head>
+<body>
+  <h1>Basic Image Map Example</h1>
+  <p>Click on different areas of the image to navigate:</p>
+
+  <img src="https://images.pexels.com/photos/4219862/pexels-photo-4219862.jpeg" usemap="#samplemap" alt="Sample Image Map">
+
+  <map name="samplemap">
+    <area shape="rect" coords="0,0,200,150" href="https://images.pexels.com/photos/4219862/pexels-photo-4219862.jpeg" alt="Top Left">
+    <area shape="rect" coords="200,0,400,150" href="https://images.pexels.com/photos/4219862/pexels-photo-4219862.jpeg" alt="Top Right">
+    <area shape="rect" coords="0,150,200,300" href="https://images.pexels.com/photos/4219862/pexels-photo-4219862.jpeg" alt="Bottom Left">
+    <area shape="rect" coords="200,150,400,300" href="https://images.pexels.com/photos/4219862/pexels-photo-4219862.jpeg" alt="Bottom Right">
+  </map>
+
+  <p>Note: This is a simple placeholder image. Replace the <code>src</code> with your own image and adjust <code>coords</code> to define clickable areas.</p>
+</body>
+</html>

@@ -1,0 +1,442 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portfolio - Web Design Portfolio</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        
+        /* Navigation Styles */
+        nav {
+            background: rgba(255, 255, 255, 0.95);
+            padding: 1rem 0;
+            border-radius: 10px;
+            margin-bottom: 2rem;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+            backdrop-filter: blur(10px);
+        }
+        
+        .nav-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        .logo {
+            font-size: 1.8rem;
+            font-weight: bold;
+            color: #667eea;
+        }
+        
+        .nav-menu {
+            display: flex;
+            list-style: none;
+            gap: 2rem;
+        }
+        
+        .nav-item a {
+            text-decoration: none;
+            color: #333;
+            font-weight: 500;
+            padding: 8px 16px;
+            border-radius: 5px;
+            transition: all 0.3s ease;
+        }
+        
+        .nav-item a:hover {
+            background: #667eea;
+            color: white;
+            transform: translateY(-2px);
+        }
+        
+        .nav-item.active a {
+            background: #667eea;
+            color: white;
+        }
+        
+        /* Main Content */
+        .content {
+            background: rgba(255, 255, 255, 0.95);
+            padding: 3rem 2rem;
+            border-radius: 15px;
+            margin-bottom: 2rem;
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+        }
+        
+        .content h1 {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+            color: #333;
+            text-align: center;
+        }
+        
+        .portfolio-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+        
+        .portfolio-item {
+            background: #f8f9fa;
+            border-radius: 10px;
+            overflow: hidden;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+        }
+        
+        .portfolio-item:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+        }
+        
+        .portfolio-image {
+            height: 200px;
+            background: linear-gradient(45deg, #667eea, #764ba2);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 3rem;
+            color: white;
+        }
+        
+        .portfolio-content {
+            padding: 1.5rem;
+        }
+        
+        .portfolio-content h3 {
+            color: #333;
+            margin-bottom: 0.5rem;
+        }
+        
+        .portfolio-content p {
+            color: #666;
+            margin-bottom: 1rem;
+        }
+        
+        .portfolio-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+            margin-bottom: 1rem;
+        }
+        
+        .tag {
+            background: #667eea;
+            color: white;
+            padding: 0.3rem 0.8rem;
+            border-radius: 15px;
+            font-size: 0.8rem;
+        }
+        
+        .portfolio-links {
+            display: flex;
+            gap: 1rem;
+        }
+        
+        .btn {
+            display: inline-block;
+            padding: 8px 16px;
+            background: #667eea;
+            color: white;
+            text-decoration: none;
+            border-radius: 5px;
+            transition: all 0.3s ease;
+            font-size: 0.9rem;
+        }
+        
+        .btn:hover {
+            background: #764ba2;
+        }
+        
+        .btn-secondary {
+            background: #6c757d;
+        }
+        
+        .btn-secondary:hover {
+            background: #5a6268;
+        }
+        
+        .filter-tabs {
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+            margin: 2rem 0;
+            flex-wrap: wrap;
+        }
+        
+        .filter-tab {
+            padding: 0.7rem 1.5rem;
+            background: #f8f9fa;
+            border: 1px solid #dee2e6;
+            border-radius: 25px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            color: #333;
+        }
+        
+        .filter-tab.active {
+            background: #667eea;
+            color: white;
+            border-color: #667eea;
+        }
+        
+        .breadcrumb {
+            background: rgba(255, 255, 255, 0.8);
+            padding: 1rem;
+            border-radius: 8px;
+            margin-bottom: 1rem;
+        }
+        
+        .breadcrumb a {
+            color: #667eea;
+            text-decoration: none;
+        }
+        
+        .breadcrumb a:hover {
+            text-decoration: underline;
+        }
+        
+        /* Footer */
+        footer {
+            margin-top: 2rem;
+            text-align: center;
+            color: rgba(255, 255, 255, 0.8);
+        }
+        
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .nav-menu {
+                flex-direction: column;
+                gap: 1rem;
+            }
+            
+            .content h1 {
+                font-size: 2rem;
+            }
+            
+            .portfolio-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .filter-tabs {
+                flex-direction: column;
+                align-items: center;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- Navigation Bar -->
+        <nav>
+            <div class="nav-container">
+                <div class="logo">WebDesign Portfolio</div>
+                <ul class="nav-menu">
+                    <li class="nav-item"><a href="1.2.html">Home</a></li>
+                    <li class="nav-item"><a href="about.html">About</a></li>
+                    <li class="nav-item"><a href="services.html">Services</a></li>
+                    <li class="nav-item active"><a href="portfolio.html">Portfolio</a></li>
+                    <li class="nav-item"><a href="contact.html">Contact</a></li>
+                    <li class="nav-item"><a href="1.1.html">Text Formatting</a></li>
+                </ul>
+            </div>
+        </nav>
+
+        <!-- Breadcrumb -->
+        <div class="breadcrumb">
+            <a href="1.2.html">Home</a> → <span>Portfolio</span>
+        </div>
+
+        <!-- Main Content -->
+        <main class="content">
+            <h1>Our Portfolio</h1>
+            <p style="text-align: center; font-size: 1.2rem; color: #666; margin-bottom: 2rem;">
+                Explore our latest projects and see how we've helped businesses succeed online
+            </p>
+            
+            <!-- Filter Tabs -->
+            <div class="filter-tabs">
+                <div class="filter-tab active">All Projects</div>
+                <div class="filter-tab">Web Design</div>
+                <div class="filter-tab">E-commerce</div>
+                <div class="filter-tab">Mobile Apps</div>
+                <div class="filter-tab">Branding</div>
+            </div>
+            
+            <!-- Portfolio Grid -->
+            <div class="portfolio-grid">
+                <div class="portfolio-item">
+                    <div class="portfolio-image">🏢</div>
+                    <div class="portfolio-content">
+                        <h3>Corporate Business Site</h3>
+                        <p>Modern, professional website for a financial consulting firm with clean design and user-friendly navigation.</p>
+                        <div class="portfolio-tags">
+                            <span class="tag">HTML/CSS</span>
+                            <span class="tag">JavaScript</span>
+                            <span class="tag">Responsive</span>
+                        </div>
+                        <div class="portfolio-links">
+                            <a href="#" class="btn">View Live</a>
+                            <a href="#" class="btn btn-secondary">Case Study</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="portfolio-item">
+                    <div class="portfolio-image">🛒</div>
+                    <div class="portfolio-content">
+                        <h3>Fashion E-commerce Store</h3>
+                        <p>Complete online store with shopping cart, payment integration, and inventory management system.</p>
+                        <div class="portfolio-tags">
+                            <span class="tag">E-commerce</span>
+                            <span class="tag">PHP</span>
+                            <span class="tag">MySQL</span>
+                        </div>
+                        <div class="portfolio-links">
+                            <a href="#" class="btn">View Live</a>
+                            <a href="#" class="btn btn-secondary">Case Study</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="portfolio-item">
+                    <div class="portfolio-image">🍕</div>
+                    <div class="portfolio-content">
+                        <h3>Restaurant Website</h3>
+                        <p>Appetizing website for a local restaurant featuring online menu, reservations, and delivery system.</p>
+                        <div class="portfolio-tags">
+                            <span class="tag">Web Design</span>
+                            <span class="tag">Bootstrap</span>
+                            <span class="tag">JavaScript</span>
+                        </div>
+                        <div class="portfolio-links">
+                            <a href="#" class="btn">View Live</a>
+                            <a href="#" class="btn btn-secondary">Case Study</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="portfolio-item">
+                    <div class="portfolio-image">📱</div>
+                    <div class="portfolio-content">
+                        <h3>Mobile Fitness App</h3>
+                        <p>Progressive web app for fitness tracking with workout plans, progress monitoring, and social features.</p>
+                        <div class="portfolio-tags">
+                            <span class="tag">PWA</span>
+                            <span class="tag">React</span>
+                            <span class="tag">Mobile</span>
+                        </div>
+                        <div class="portfolio-links">
+                            <a href="#" class="btn">View Live</a>
+                            <a href="#" class="btn btn-secondary">Case Study</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="portfolio-item">
+                    <div class="portfolio-image">🎨</div>
+                    <div class="portfolio-content">
+                        <h3>Creative Agency Portfolio</h3>
+                        <p>Stunning portfolio website for a creative agency showcasing their work with interactive animations.</p>
+                        <div class="portfolio-tags">
+                            <span class="tag">Creative</span>
+                            <span class="tag">CSS3</span>
+                            <span class="tag">Animations</span>
+                        </div>
+                        <div class="portfolio-links">
+                            <a href="#" class="btn">View Live</a>
+                            <a href="#" class="btn btn-secondary">Case Study</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="portfolio-item">
+                    <div class="portfolio-image">🏥</div>
+                    <div class="portfolio-content">
+                        <h3>Healthcare Dashboard</h3>
+                        <p>Comprehensive admin dashboard for healthcare management with patient records and appointment scheduling.</p>
+                        <div class="portfolio-tags">
+                            <span class="tag">Dashboard</span>
+                            <span class="tag">Vue.js</span>
+                            <span class="tag">Charts</span>
+                        </div>
+                        <div class="portfolio-links">
+                            <a href="#" class="btn">View Live</a>
+                            <a href="#" class="btn btn-secondary">Case Study</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="portfolio-item">
+                    <div class="portfolio-image">📚</div>
+                    <div class="portfolio-content">
+                        <h3>Online Learning Platform</h3>
+                        <p>Educational platform with course management, video streaming, and student progress tracking features.</p>
+                        <div class="portfolio-tags">
+                            <span class="tag">Education</span>
+                            <span class="tag">Node.js</span>
+                            <span class="tag">Video</span>
+                        </div>
+                        <div class="portfolio-links">
+                            <a href="#" class="btn">View Live</a>
+                            <a href="#" class="btn btn-secondary">Case Study</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="portfolio-item">
+                    <div class="portfolio-image">🏠</div>
+                    <div class="portfolio-content">
+                        <h3>Real Estate Website</h3>
+                        <p>Property listing website with advanced search, virtual tours, and mortgage calculator integration.</p>
+                        <div class="portfolio-tags">
+                            <span class="tag">Real Estate</span>
+                            <span class="tag">Search</span>
+                            <span class="tag">Maps API</span>
+                        </div>
+                        <div class="portfolio-links">
+                            <a href="#" class="btn">View Live</a>
+                            <a href="#" class="btn btn-secondary">Case Study</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div style="text-align: center; margin-top: 3rem; padding: 2rem; background: #f8f9fa; border-radius: 10px;">
+                <h2>Ready to Start Your Project?</h2>
+                <p style="margin-bottom: 1.5rem;">Let's discuss how we can bring your vision to life</p>
+                <a href="contact.html" class="btn" style="padding: 12px 24px; font-size: 1.1rem;">Get Started Today</a>
+            </div>
+        </main>
+
+        <!-- Footer -->
+        <footer>
+            <p>&copy; 2025 Web Design Portfolio. All rights reserved. | 
+            <a href="1.2.html" style="color: rgba(255, 255, 255, 0.8);">Back to Home</a></p>
+        </footer>
+    </div>
+</body>
+</html>

@@ -1,0 +1,34 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Stylesheet Types Demo</title>
+
+  <!-- Internal style sheet -->
+  <style>
+    body { font-family: Arial, sans-serif; margin: 20px; background-color: #f8f8f8; }
+    h1 { color: darkblue; }
+    p { font-size: 16px; color: #333; }
+    .internal-demo { color: green; font-weight: bold; }
+  </style>
+
+  <!-- External style sheet link (demo.css should exist in same folder) -->
+  <link rel="stylesheet" href="demo.css">
+</head>
+<body>
+  <h1>Demonstration of CSS Types</h1>
+
+  <h2>1. Inline Style</h2>
+  <p style="color:red; font-weight:bold;">This text is styled with <strong>inline CSS</strong> (inside the element).</p>
+
+  <h2>2. Internal Style</h2>
+  <p class="internal-demo">This text is styled with <strong>internal CSS</strong> (inside the &lt;style&gt; tag in &lt;head&gt;).</p>
+
+  <h2>3. External Style</h2>
+  <p class="external-demo">This text is styled with <strong>external CSS</strong> (from demo.css file linked in &lt;head&gt;).</p>
+
+  <hr>
+  <p><em>Tip:</em> Save this file as <code>stylesheet-types-demo.html</code> and create another file <code>demo.css</code> with CSS rules like <code>.external-demo { color: purple; text-decoration: underline; }</code></p>
+</body>
+</html>

@@ -1,0 +1,227 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>My Website — Home</title>
+  <style>
+    :root{--bg:#f8fafc;--card:#fff;--muted:#6b7280;--accent:#2563eb}
+    *{box-sizing:border-box}
+    body{margin:0;font-family:system-ui,-apple-system,Segoe UI,Roboto,Helvetica,Arial;line-height:1.5;background:var(--bg);color:#111}
+    header{background:var(--card);padding:1rem 2rem;display:flex;align-items:center;justify-content:space-between;box-shadow:0 1px 0 rgba(0,0,0,.04)}
+    .brand{font-weight:700}
+    nav a{margin-left:1rem;text-decoration:none;color:var(--muted);padding:.35rem .5rem;border-radius:6px}
+    nav a.active, nav a:hover{color:#fff;background:var(--accent)}
+    main{padding:2rem;max-width:1000px;margin:1rem auto}
+    .hero{background:var(--card);padding:2rem;border-radius:10px;box-shadow:0 6px 18px rgba(16,24,40,.06)}
+    .grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:1rem;margin-top:1rem}
+    .card{background:var(--card);padding:1rem;border-radius:8px}
+    footer{max-width:1000px;margin:2rem auto;color:var(--muted);text-align:center}
+    @media(prefers-color-scheme:dark){:root{--bg:#0b1220;--card:#071022;--muted:#9aa4b2;--accent:#60a5fa} body{color:#e6eef6}}
+  </style>
+</head>
+<body>
+  <header>
+    <div class="brand">My Website</div>
+    <nav>
+      <a href="index.html" class="active">Home</a>
+      <a href="about.html">About</a>
+      <a href="services.html">Services</a>
+      <a href="contact.html">Contact</a>
+    </nav>
+  </header>
+
+  <main>
+    <section class="hero">
+      <h1>Welcome to My Website</h1>
+      <p>This simple multi-page example shows how to link pages together with regular anchor tags. Save each page separately and open <strong>index.html</strong> to start.</p>
+      <div class="grid">
+        <div class="card">
+          <h3>Navigate</h3>
+          <p>Use the navigation bar to move between pages. Each link points to a separate HTML file (multi-page website).</p>
+        </div>
+        <div class="card">
+          <h3>Mobile friendly</h3>
+          <p>The layout adapts to smaller screens using responsive grid and simple CSS.</p>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    © <span id="year"></span> My Website — Built with plain HTML &amp; CSS
+  </footer>
+
+  <script>
+    // small script to set year and highlight active link when opened from file:// or server
+    document.getElementById('year').textContent = new Date().getFullYear();
+    // highlight active nav link (works when each page is saved separately)
+    (function(){
+      const links = document.querySelectorAll('nav a');
+      links.forEach(a => {
+        if (a.getAttribute('href') === location.pathname.split('/').pop() || (location.pathname.endsWith('/') && a.getAttribute('href') === 'index.html')){
+          a.classList.add('active');
+        }
+      });
+    })();
+  </script>
+</body>
+</html>
+
+<!-- PAGE: about.html -->
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>My Website — About</title>
+  <style>
+    /* Reuse the same simple styles as index page. You can copy them into every file. */
+    :root{--bg:#f8fafc;--card:#fff;--muted:#6b7280;--accent:#2563eb}
+    *{box-sizing:border-box}
+    body{margin:0;font-family:system-ui,-apple-system,Segoe UI,Roboto,Helvetica,Arial;line-height:1.5;background:var(--bg);color:#111}
+    header{background:var(--card);padding:1rem 2rem;display:flex;align-items:center;justify-content:space-between;box-shadow:0 1px 0 rgba(0,0,0,.04)}
+    .brand{font-weight:700}
+    nav a{margin-left:1rem;text-decoration:none;color:var(--muted);padding:.35rem .5rem;border-radius:6px}
+    nav a.active, nav a:hover{color:#fff;background:var(--accent)}
+    main{padding:2rem;max-width:1000px;margin:1rem auto}
+    .content{background:var(--card);padding:1.5rem;border-radius:10px}
+    footer{max-width:1000px;margin:2rem auto;color:var(--muted);text-align:center}
+  </style>
+</head>
+<body>
+  <header>
+    <div class="brand">My Website</div>
+    <nav>
+      <a href="index.html">Home</a>
+      <a href="about.html" class="active">About</a>
+      <a href="services.html">Services</a>
+      <a href="contact.html">Contact</a>
+    </nav>
+  </header>
+
+  <main>
+    <section class="content">
+      <h1>About Us</h1>
+      <p>We build small websites and demos to teach web fundamentals. This page shows how to create separate HTML files and link them with normal anchor (&lt;a&gt;) elements.</p>
+      <h3>How navigation works</h3>
+      <p>Clicking an anchor with an href like <code>about.html</code> tells the browser to load that file from the same folder. For local testing, save all files in one folder and open <code>index.html</code> with your browser.</p>
+    </section>
+  </main>
+
+  <footer>
+    © <span id="year2"></span> My Website
+  </footer>
+
+  <script>document.getElementById('year2').textContent = new Date().getFullYear();</script>
+</body>
+</html>
+
+<!-- PAGE: services.html -->
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>My Website — Services</title>
+  <style>
+    :root{--bg:#f8fafc;--card:#fff;--muted:#6b7280;--accent:#2563eb}
+    *{box-sizing:border-box}
+    body{margin:0;font-family:system-ui,-apple-system,Segoe UI,Roboto,Helvetica,Arial;line-height:1.5;background:var(--bg);color:#111}
+    header{background:var(--card);padding:1rem 2rem;display:flex;align-items:center;justify-content:space-between;box-shadow:0 1px 0 rgba(0,0,0,.04)}
+    .brand{font-weight:700}
+    nav a{margin-left:1rem;text-decoration:none;color:var(--muted);padding:.35rem .5rem;border-radius:6px}
+    nav a.active, nav a:hover{color:#fff;background:var(--accent)}
+    main{padding:2rem;max-width:1000px;margin:1rem auto}
+    .grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:1rem}
+    .card{background:var(--card);padding:1rem;border-radius:8px}
+    footer{max-width:1000px;margin:2rem auto;color:var(--muted);text-align:center}
+  </style>
+</head>
+<body>
+  <header>
+    <div class="brand">My Website</div>
+    <nav>
+      <a href="index.html">Home</a>
+      <a href="about.html">About</a>
+      <a href="services.html" class="active">Services</a>
+      <a href="contact.html">Contact</a>
+    </nav>
+  </header>
+
+  <main>
+    <h1>Our Services</h1>
+    <div class="grid">
+      <div class="card"><h3>Web Design</h3><p>Responsive layouts and clean UI.</p></div>
+      <div class="card"><h3>Development</h3><p>Vanilla HTML/CSS/JS or frameworks.</p></div>
+      <div class="card"><h3>Teaching</h3><p>Workshops and tutorials for beginners.</p></div>
+    </div>
+  </main>
+
+  <footer>
+    © <span id="year3"></span> My Website
+  </footer>
+
+  <script>document.getElementById('year3').textContent = new Date().getFullYear();</script>
+</body>
+</html>
+
+<!-- PAGE: contact.html -->
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>My Website — Contact</title>
+  <style>
+    :root{--bg:#f8fafc;--card:#fff;--muted:#6b7280;--accent:#2563eb}
+    *{box-sizing:border-box}
+    body{margin:0;font-family:system-ui,-apple-system,Segoe UI,Roboto,Helvetica,Arial;line-height:1.5;background:var(--bg);color:#111}
+    header{background:var(--card);padding:1rem 2rem;display:flex;align-items:center;justify-content:space-between;box-shadow:0 1px 0 rgba(0,0,0,.04)}
+    .brand{font-weight:700}
+    nav a{margin-left:1rem;text-decoration:none;color:var(--muted);padding:.35rem .5rem;border-radius:6px}
+    nav a.active, nav a:hover{color:#fff;background:var(--accent)}
+    main{padding:2rem;max-width:600px;margin:1rem auto}
+    form{background:var(--card);padding:1.25rem;border-radius:8px;display:grid;gap:.75rem}
+    label{font-size:.95rem;color:var(--muted)}
+    input[type=text], input[type=email], textarea{width:100%;padding:.5rem;border:1px solid #e6eef6;border-radius:6px}
+    button{background:var(--accent);color:#fff;padding:.6rem .8rem;border-radius:6px;border:0;cursor:pointer}
+    footer{max-width:1000px;margin:2rem auto;color:var(--muted);text-align:center}
+  </style>
+</head>
+<body>
+  <header>
+    <div class="brand">My Website</div>
+    <nav>
+      <a href="index.html">Home</a>
+      <a href="about.html">About</a>
+      <a href="services.html">Services</a>
+      <a href="contact.html" class="active">Contact</a>
+    </nav>
+  </header>
+
+  <main>
+    <h1>Contact Us</h1>
+    <form onsubmit="event.preventDefault(); alert('Thanks! Your message was sent (demo).');">
+      <label for="name">Name</label>
+      <input id="name" type="text" required>
+
+      <label for="email">Email</label>
+      <input id="email" type="email" required>
+
+      <label for="message">Message</label>
+      <textarea id="message" rows="5" required></textarea>
+
+      <div>
+        <button type="submit">Send Message</button>
+      </div>
+    </form>
+  </main>
+
+  <footer>
+    © <span id="year4"></span> My Website
+  </footer>
+
+  <script>document.getElementById('year4').textContent = new Date().getFullYear();</script>
+</body>
+</html>

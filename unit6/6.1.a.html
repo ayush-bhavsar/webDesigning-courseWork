@@ -1,0 +1,34 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Prime Numbers 1-100</title>
+  <style>
+    body { font-family: Arial, sans-serif; margin: 20px; background-color: #f9f9f9; }
+    h1 { color: darkblue; }
+    .primes { margin-top: 10px; font-weight: bold; }
+  </style>
+</head>
+<body>
+  <h1>Prime Numbers from 1 to 100</h1>
+  <div class="primes" id="primeList"></div>
+
+  <script>
+    function isPrime(num) {
+      if(num <= 1) return false;
+      for(let i = 2; i <= Math.sqrt(num); i++) {
+        if(num % i === 0) return false;
+      }
+      return true;
+    }
+
+    let primes = [];
+    for(let i = 1; i <= 100; i++) {
+      if(isPrime(i)) primes.push(i);
+    }
+
+    document.getElementById('primeList').innerText = primes.join(', ');
+  </script>
+</body>
+</html>

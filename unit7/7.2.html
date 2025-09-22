@@ -1,0 +1,61 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Looping Statements Demo</title>
+  <style>
+    body { font-family: Arial, sans-serif; margin: 20px; background-color: #f9f9f9; }
+    h1 { color: darkblue; }
+    input, button { padding: 8px; margin-top: 5px; margin-bottom: 15px; }
+    .result { margin-top: 10px; font-weight: bold; }
+  </style>
+</head>
+<body>
+  <h1>Looping Statements Demo</h1>
+
+  <label for="number">Enter a number:</label><br>
+  <input type="number" id="number">
+  <button onclick="forLoopDemo()">For Loop</button>
+  <button onclick="whileLoopDemo()">While Loop</button>
+  <button onclick="doWhileLoopDemo()">Do-While Loop</button>
+
+  <div class="result" id="result"></div>
+
+  <script>
+    function forLoopDemo() {
+      const n = parseInt(document.getElementById('number').value);
+      if(isNaN(n) || n <= 0) { alert('Enter a positive number'); return; }
+      let output = '';
+      for(let i = 1; i <= n; i++) {
+        output += i + ' ';
+      }
+      document.getElementById('result').innerText = 'For Loop: ' + output;
+    }
+
+    function whileLoopDemo() {
+      const n = parseInt(document.getElementById('number').value);
+      if(isNaN(n) || n <= 0) { alert('Enter a positive number'); return; }
+      let i = 1;
+      let output = '';
+      while(i <= n) {
+        output += i + ' ';
+        i++;
+      }
+      document.getElementById('result').innerText = 'While Loop: ' + output;
+    }
+
+    function doWhileLoopDemo() {
+      const n = parseInt(document.getElementById('number').value);
+      if(isNaN(n) || n <= 0) { alert('Enter a positive number'); return; }
+      let i = 1;
+      let output = '';
+      do {
+        output += i + ' ';
+        i++;
+      } while(i <= n);
+      document.getElementById('result').innerText = 'Do-While Loop: ' + output;
+    }
+  </script>
+</body>
+</html>

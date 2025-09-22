@@ -1,0 +1,57 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>JavaScript Series Demo</title>
+  <style>
+    body { font-family: Arial, sans-serif; margin: 20px; background-color: #f9f9f9; }
+    h1 { color: darkblue; }
+    input, button { padding: 8px; margin-top: 5px; margin-bottom: 15px; }
+    .result { margin-top: 10px; font-weight: bold; }
+  </style>
+</head>
+<body>
+  <h1>JavaScript Series Demo</h1>
+
+  <label for="number">Enter a number:</label><br>
+  <input type="number" id="number" min="0">
+  <button onclick="calculateFactorial()">Factorial</button>
+  <button onclick="generateFibonacci()">Fibonacci Series</button>
+  <button onclick="generateEvenSeries()">Even Series</button>
+
+  <div class="result" id="result"></div>
+
+  <script>
+    function calculateFactorial() {
+      const n = parseInt(document.getElementById('number').value);
+      if (isNaN(n) || n < 0) { alert('Enter a non-negative number'); return; }
+      let fact = 1;
+      for(let i = 1; i <= n; i++) {
+        fact *= i;
+      }
+      document.getElementById('result').innerText = `Factorial of ${n} is ${fact}`;
+    }
+
+    function generateFibonacci() {
+      const n = parseInt(document.getElementById('number').value);
+      if (isNaN(n) || n <= 0) { alert('Enter a positive number'); return; }
+      let fib = [0, 1];
+      for (let i = 2; i < n; i++) {
+        fib[i] = fib[i-1] + fib[i-2];
+      }
+      document.getElementById('result').innerText = `First ${n} Fibonacci numbers: ${fib.slice(0,n).join(', ')}`;
+    }
+
+    function generateEvenSeries() {
+      const n = parseInt(document.getElementById('number').value);
+      if (isNaN(n) || n <= 0) { alert('Enter a positive number'); return; }
+      let series = [];
+      for(let i = 2; series.length < n; i+=2) {
+        series.push(i);
+      }
+      document.getElementById('result').innerText = `First ${n} even numbers: ${series.join(', ')}`;
+    }
+  </script>
+</body>
+</html>
