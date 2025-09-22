@@ -1,0 +1,413 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact - Web Design Portfolio</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        
+        /* Navigation Styles */
+        nav {
+            background: rgba(255, 255, 255, 0.95);
+            padding: 1rem 0;
+            border-radius: 10px;
+            margin-bottom: 2rem;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+            backdrop-filter: blur(10px);
+        }
+        
+        .nav-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        .logo {
+            font-size: 1.8rem;
+            font-weight: bold;
+            color: #667eea;
+        }
+        
+        .nav-menu {
+            display: flex;
+            list-style: none;
+            gap: 2rem;
+        }
+        
+        .nav-item a {
+            text-decoration: none;
+            color: #333;
+            font-weight: 500;
+            padding: 8px 16px;
+            border-radius: 5px;
+            transition: all 0.3s ease;
+        }
+        
+        .nav-item a:hover {
+            background: #667eea;
+            color: white;
+            transform: translateY(-2px);
+        }
+        
+        .nav-item.active a {
+            background: #667eea;
+            color: white;
+        }
+        
+        /* Main Content */
+        .content {
+            background: rgba(255, 255, 255, 0.95);
+            padding: 3rem 2rem;
+            border-radius: 15px;
+            margin-bottom: 2rem;
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+        }
+        
+        .content h1 {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+            color: #333;
+            text-align: center;
+        }
+        
+        .contact-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 3rem;
+            margin-top: 2rem;
+        }
+        
+        .contact-info {
+            background: #f8f9fa;
+            padding: 2rem;
+            border-radius: 10px;
+        }
+        
+        .contact-info h3 {
+            color: #333;
+            margin-bottom: 1.5rem;
+            font-size: 1.3rem;
+        }
+        
+        .info-item {
+            display: flex;
+            align-items: center;
+            margin-bottom: 1.5rem;
+            padding: 1rem;
+            background: white;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+        }
+        
+        .info-item .icon {
+            font-size: 1.5rem;
+            margin-right: 1rem;
+            width: 40px;
+            text-align: center;
+        }
+        
+        .contact-form {
+            background: #f8f9fa;
+            padding: 2rem;
+            border-radius: 10px;
+        }
+        
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+        
+        .form-group label {
+            display: block;
+            margin-bottom: 0.5rem;
+            font-weight: 500;
+            color: #333;
+        }
+        
+        .form-group input,
+        .form-group textarea,
+        .form-group select {
+            width: 100%;
+            padding: 0.8rem;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            font-size: 1rem;
+            transition: border-color 0.3s ease;
+        }
+        
+        .form-group input:focus,
+        .form-group textarea:focus,
+        .form-group select:focus {
+            outline: none;
+            border-color: #667eea;
+            box-shadow: 0 0 5px rgba(102, 126, 234, 0.3);
+        }
+        
+        .form-group textarea {
+            resize: vertical;
+            min-height: 120px;
+        }
+        
+        .btn {
+            display: inline-block;
+            padding: 12px 24px;
+            background: #667eea;
+            color: white;
+            text-decoration: none;
+            border-radius: 25px;
+            transition: all 0.3s ease;
+            font-weight: 500;
+            border: none;
+            cursor: pointer;
+            font-size: 1rem;
+        }
+        
+        .btn:hover {
+            background: #764ba2;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 15px rgba(102, 126, 234, 0.4);
+        }
+        
+        .breadcrumb {
+            background: rgba(255, 255, 255, 0.8);
+            padding: 1rem;
+            border-radius: 8px;
+            margin-bottom: 1rem;
+        }
+        
+        .breadcrumb a {
+            color: #667eea;
+            text-decoration: none;
+        }
+        
+        .breadcrumb a:hover {
+            text-decoration: underline;
+        }
+        
+        .map-container {
+            margin-top: 2rem;
+            background: #f8f9fa;
+            padding: 2rem;
+            border-radius: 10px;
+            text-align: center;
+        }
+        
+        .map-placeholder {
+            height: 200px;
+            background: linear-gradient(45deg, #e9ecef, #dee2e6);
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.2rem;
+            color: #6c757d;
+        }
+        
+        /* Footer */
+        footer {
+            margin-top: 2rem;
+            text-align: center;
+            color: rgba(255, 255, 255, 0.8);
+        }
+        
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .nav-menu {
+                flex-direction: column;
+                gap: 1rem;
+            }
+            
+            .content h1 {
+                font-size: 2rem;
+            }
+            
+            .contact-grid {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- Navigation Bar -->
+        <nav>
+            <div class="nav-container">
+                <div class="logo">WebDesign Portfolio</div>
+                <ul class="nav-menu">
+                    <li class="nav-item"><a href="1.2.html">Home</a></li>
+                    <li class="nav-item"><a href="about.html">About</a></li>
+                    <li class="nav-item"><a href="services.html">Services</a></li>
+                    <li class="nav-item"><a href="portfolio.html">Portfolio</a></li>
+                    <li class="nav-item active"><a href="contact.html">Contact</a></li>
+                    <li class="nav-item"><a href="1.1.html">Text Formatting</a></li>
+                </ul>
+            </div>
+        </nav>
+
+        <!-- Breadcrumb -->
+        <div class="breadcrumb">
+            <a href="1.2.html">Home</a> → <span>Contact</span>
+        </div>
+
+        <!-- Main Content -->
+        <main class="content">
+            <h1>Get In Touch</h1>
+            <p style="text-align: center; font-size: 1.2rem; color: #666; margin-bottom: 2rem;">
+                Ready to start your next project? We'd love to hear from you!
+            </p>
+            
+            <div class="contact-grid">
+                <!-- Contact Information -->
+                <div class="contact-info">
+                    <h3>Contact Information</h3>
+                    
+                    <div class="info-item">
+                        <div class="icon">📧</div>
+                        <div>
+                            <strong>Email</strong><br>
+                            info@webdesignportfolio.com<br>
+                            support@webdesignportfolio.com
+                        </div>
+                    </div>
+                    
+                    <div class="info-item">
+                        <div class="icon">📱</div>
+                        <div>
+                            <strong>Phone</strong><br>
+                            +1 (555) 123-4567<br>
+                            +1 (555) 987-6543
+                        </div>
+                    </div>
+                    
+                    <div class="info-item">
+                        <div class="icon">📍</div>
+                        <div>
+                            <strong>Address</strong><br>
+                            123 Design Street<br>
+                            Creative City, CC 12345
+                        </div>
+                    </div>
+                    
+                    <div class="info-item">
+                        <div class="icon">🕒</div>
+                        <div>
+                            <strong>Business Hours</strong><br>
+                            Mon - Fri: 9:00 AM - 6:00 PM<br>
+                            Sat: 10:00 AM - 4:00 PM
+                        </div>
+                    </div>
+                    
+                    <div class="info-item">
+                        <div class="icon">🌐</div>
+                        <div>
+                            <strong>Social Media</strong><br>
+                            Facebook | Twitter | LinkedIn<br>
+                            Instagram | Behance
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Contact Form -->
+                <div class="contact-form">
+                    <h3 style="margin-bottom: 1.5rem; color: #333;">Send us a Message</h3>
+                    
+                    <form action="#" method="post">
+                        <div class="form-group">
+                            <label for="name">Full Name *</label>
+                            <input type="text" id="name" name="name" required>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="email">Email Address *</label>
+                            <input type="email" id="email" name="email" required>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="phone">Phone Number</label>
+                            <input type="tel" id="phone" name="phone">
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="service">Service Interested In</label>
+                            <select id="service" name="service">
+                                <option value="">Select a Service</option>
+                                <option value="web-design">Web Design</option>
+                                <option value="web-development">Web Development</option>
+                                <option value="ecommerce">E-commerce Solutions</option>
+                                <option value="mobile">Mobile App Development</option>
+                                <option value="seo">SEO Optimization</option>
+                                <option value="maintenance">Website Maintenance</option>
+                                <option value="other">Other</option>
+                            </select>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="budget">Project Budget</label>
+                            <select id="budget" name="budget">
+                                <option value="">Select Budget Range</option>
+                                <option value="under-1k">Under $1,000</option>
+                                <option value="1k-5k">$1,000 - $5,000</option>
+                                <option value="5k-10k">$5,000 - $10,000</option>
+                                <option value="10k-25k">$10,000 - $25,000</option>
+                                <option value="over-25k">Over $25,000</option>
+                            </select>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="message">Project Details *</label>
+                            <textarea id="message" name="message" placeholder="Please describe your project requirements, timeline, and any specific features you need..." required></textarea>
+                        </div>
+                        
+                        <button type="submit" class="btn">Send Message</button>
+                    </form>
+                </div>
+            </div>
+            
+            <!-- Map Section -->
+            <div class="map-container">
+                <h3 style="margin-bottom: 1rem;">Find Us Here</h3>
+                <div class="map-placeholder">
+                    🗺️ Interactive Map Would Be Here<br>
+                    <small>(In a real website, this would be Google Maps or another mapping service)</small>
+                </div>
+            </div>
+            
+            <!-- Call to Action -->
+            <div style="text-align: center; margin-top: 3rem; padding: 2rem; background: #f8f9fa; border-radius: 10px;">
+                <h2>Ready to Get Started?</h2>
+                <p style="margin-bottom: 1.5rem;">Let's discuss your project and see how we can help you achieve your goals.</p>
+                <a href="tel:+15551234567" class="btn" style="margin-right: 1rem;">📞 Call Now</a>
+                <a href="mailto:info@webdesignportfolio.com" class="btn" style="background: #764ba2;">✉️ Email Us</a>
+            </div>
+        </main>
+
+        <!-- Footer -->
+        <footer>
+            <p>&copy; 2025 Web Design Portfolio. All rights reserved. | 
+            <a href="1.2.html" style="color: rgba(255, 255, 255, 0.8);">Back to Home</a></p>
+        </footer>
+    </div>
+</body>
+</html>
